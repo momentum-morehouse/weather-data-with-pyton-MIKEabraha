@@ -31,11 +31,18 @@ def climate(locations):
         } 
 
         response = requests.get(url, params=payload).json()
+
+     
+
         climate_data_packet[location[2]] = response["temp"] ["value"]
+        
+    for city, temp in climate_data_packet.items():
+
+        print(f"The temp is {temp} in {city}.")    
     return climate_data_packet
 
 climate_data = climate(city_list)
-print(climate_data)
+#print(climate_data)
  #expects to see real numbers
 
 #TODO construct a list of places that are tuples lat and long
